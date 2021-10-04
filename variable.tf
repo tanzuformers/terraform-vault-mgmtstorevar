@@ -1,14 +1,18 @@
 variable "output_path"{
+    description = "Local path folder for input/output files (kubectl)"
     type = string
     default = "."
 }
 variable "vault_ip"{
+    description = "Vault instance ip"
     type = string
 }
 variable "vault_token"{
+    description = "Vault instance token"
     type = string
 }
 variable "vsphere_env" {
+    description = "vCenter environment variables"
     type = object({
         server = string
         user = string
@@ -23,6 +27,7 @@ variable "vsphere_env" {
 
 ## Suggested a dedicated env for tkg clusters
 variable "tkg_env" {
+    description = "vSphere environment elements for Tanzu"
     type = object({
         datacenter_name = string
         cluster_name = string
@@ -44,6 +49,7 @@ variable "tkg_env" {
 }
 
 variable "tkg_network" {
+    description = "Networking environment for Tanzu"
     type = object({
         network_id = string
         gateway = string
@@ -65,6 +71,7 @@ variable "tkg_network" {
 }
 
 variable tkg_bootvm {
+    description = "BootVM params"
     type = object({
         image_name = string
         name = string
@@ -82,6 +89,7 @@ variable tkg_bootvm {
 }
 
 variable "tkg_mgmt" {
+    description = "Management cluster parameters"
     type = object({
         ip = string
         loadbalancer_cidr = string
